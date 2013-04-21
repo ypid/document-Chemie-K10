@@ -1,0 +1,94 @@
+%% <school/Schulischer-Kurztext.tex> template 1.1.1 by Robin `ypid` Schneider <ypid23@aol.de>
+%% The current version can be found on: https://github.com/ypid/typesetting/blob/master/templates/school/Schulischer-Kurztext.tex
+%%% preamble
+%\RequirePackage{snapshot}		%% \jobname.dep
+%\listfiles %% listfiles to logfile
+\RequirePackage{RequirePackageRS}
+\documentclass[12pt,a4paper,ngerman,numbers=noenddot,toc=listof]{scrartcl} %%% ,draft
+\usepackage{
+%	physicsRS,
+	scrartclRS,
+	defaultRS,
+%	literatureRS,
+%	debugRS,
+	timeRS,
+	graphicRS,
+	mathematicsRS,
+%	gamesRS,
+	layoutRS,
+	footingRS,
+	extensionsRS,
+	docExtensionsRS,
+	schoolRS,
+	chemistryRS,
+	chemarrow,
+	titleref,
+	array,
+}
+\nonumber		%% für align
+%% specific indications
+\readgitstat{7}
+\SetTITEL{Chemie}
+\SetAUTHOR{1}{}
+\SetKLASSE{10}
+\SetURL{http://ypid.files.wordpress.com/2013/04/chemie-k10.pdf}
+\SetGitURL{https://github.com/ypid/document-Chemie-K10}
+\choosedefaultlicense
+\SetCREATEDATE{2010}{04}{19}{15}{23}{23}        %% {YYYY}{MM}{DD}{HH}{MM}{SS}
+%% Schätzung
+\SetABGABEDATUM{2}{2010}{05}{10}{1}
+\usepackage{
+	schoolPDFinfoRS,
+	tableRS,
+}
+%\SetDraft{on}
+%%% body
+\begin{document}
+\pdfbookmark[1]{Titelseite}{titelseite}\pagenumbering{Roman}\thispagestyle{empty}
+\input{/home/rsadmin/Dokumente/LaTeX/input-document/titelpages/title-author-date}
+\author{\AUTHOR\ -- \printClass}
+\maketitle
+\newpage\pdfbookmark[1]{\contentsname}{inhaltsverzeichnis}
+\tableofcontents
+\input{files/acronym}\setcounter{headpages}{\value{page}}
+\newpage
+\pagenumbering{arabic}
+
+\include{files/chapters/poem}
+
+\include{files/chapters/modelle}
+\input{files/chapters/rest}
+
+\vfill
+
+\printURLlong
+\printlicense
+\printendsignature
+
+%\ifDraft{
+\newpage\Statistiken
+Status:~\progressbar{.97} (eigenes Ermessen)
+\newpage
+    \begin{sourcefiletable}{1}
+      \Isourcefile{Hauptdatei}{\jobname.tex}
+      \Isourcefile{Abkürzungs-Datenbank}{files/acronym.tex}
+	  \Isourcefile{Gedicht}{files/chapters/poem.tex}
+	  \Isourcefile{Modelle}{files/chapters/modelle.tex}
+	  \Isourcefile{restlicher Inhalt}{files/chapters/rest.tex}
+    \end{sourcefiletable}
+%}{}
+%\ifDraft{
+  \begin{landscape}
+	\pagestyle{empty}
+	\pdfbookmark[2]{Versionshinweise}{versionshinweise}
+	\subsection*{Versionshinweise}
+	\input{files/git/versions-log}
+	% \printgitstatlandscape{1}
+  \end{landscape}
+	% \printgitstat{1}
+%	\subsubsection*{Dateien?}
+%	\pdfbookmark[3]{Dateien?}{files_by_date}
+%	\includegraphics[width=14cm]{files/git/stats/files_by_date-crop}
+%	\listoffixmes
+%}{}
+\end{document}
