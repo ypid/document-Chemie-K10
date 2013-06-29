@@ -1,5 +1,5 @@
-%% <school/Schulischer-Kurztext.tex> template 1.1.1 by Robin `ypid` Schneider <ypid23@aol.de>
-%% The current version can be found on: https://github.com/ypid/typesetting/blob/master/templates/school/Schulischer-Kurztext.tex
+%% <school/Epochenheft.tex> template 1.3 by Robin `ypid` Schneider <ypid23@aol.de>
+%% The current version can be found on: https://github.com/ypid/typesetting/blob/master/templates/school/Epochenheft.tex
 %%% preamble
 %\RequirePackage{snapshot}		%% \jobname.dep
 %\listfiles %% listfiles to logfile
@@ -31,7 +31,8 @@
 \SetTITEL{Chemie}
 \SetAUTHOR{1}{}
 \SetKLASSE{10}
-\SetURL{http://ypid.files.wordpress.com/2013/04/chemie-k10.pdf}
+\SetSUBJECT{\printClass}
+\SetURL{http://ypid.files.wordpress.com/2013/06/chemie-k10.pdf}
 \SetGitURL{https://github.com/ypid/document-Chemie-K10}
 \choosedefaultlicense
 \SetCREATEDATE{2010}{04}{19}{15}{23}{23}        %% {YYYY}{MM}{DD}{HH}{MM}{SS}
@@ -44,15 +45,13 @@
 %\SetDraft{on}
 %%% body
 \begin{document}
-\pdfbookmark[1]{Titelseite}{titelseite}\pagenumbering{Roman}\thispagestyle{empty}
-\input{/home/rsadmin/Dokumente/LaTeX/input-document/titelpages/title-author-date}
-\author{\AUTHOR\ -- \printClass}
-\maketitle
-\newpage\pdfbookmark[1]{\contentsname}{inhaltsverzeichnis}
+\MakeTitle
+\newpage\pdfbookmark[1]{\contentsname}{tableofcontents}
 \tableofcontents
-\input{files/acronym}\setcounter{headpages}{\value{page}}
-\newpage
-\pagenumbering{arabic}
+\input{files/acronym}
+
+\mainmatter
+%%%%%%%%%%%
 
 \include{files/chapters/poem}
 
